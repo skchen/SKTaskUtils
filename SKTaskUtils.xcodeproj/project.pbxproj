@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8270D0A51CA6D76500B9069A /* SKTaskUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0A41CA6D76500B9069A /* SKTaskUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8270D0AC1CA6D76500B9069A /* SKTaskUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */; };
+		8270D0AC1CA6D76500B9069A /* SKTaskUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8270D0B11CA6D76500B9069A /* SKTaskUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0B01CA6D76500B9069A /* SKTaskUtilsTests.m */; };
 		8270D0BD1CA6D79800B9069A /* SKTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */; };
 		8270D0BE1CA6D79800B9069A /* SKTaskQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0BC1CA6D79800B9069A /* SKTaskQueue.m */; };
 		8270D0C01CA6D7AD00B9069A /* SKTaskQueueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0BF1CA6D7AD00B9069A /* SKTaskQueueTest.m */; };
+		8270D0D71CA6E7D200B9069A /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */; };
+		8270D0D81CA6E7D200B9069A /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D0D61CA6E7D200B9069A /* OCMockito.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaskQueue.h; sourceTree = "<group>"; };
 		8270D0BC1CA6D79800B9069A /* SKTaskQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaskQueue.m; sourceTree = "<group>"; };
 		8270D0BF1CA6D7AD00B9069A /* SKTaskQueueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaskQueueTest.m; sourceTree = "<group>"; };
+		8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = Carthage/Build/iOS/OCHamcrest.framework; sourceTree = "<group>"; };
+		8270D0D61CA6E7D200B9069A /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = Carthage/Build/iOS/OCMockito.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8270D0D71CA6E7D200B9069A /* OCHamcrest.framework in Frameworks */,
+				8270D0D81CA6E7D200B9069A /* OCMockito.framework in Frameworks */,
 				8270D0AC1CA6D76500B9069A /* SKTaskUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +65,8 @@
 		8270D0971CA6D76500B9069A = {
 			isa = PBXGroup;
 			children = (
+				8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */,
+				8270D0D61CA6E7D200B9069A /* OCMockito.framework */,
 				8270D0A31CA6D76500B9069A /* SKTaskUtils */,
 				8270D0AF1CA6D76500B9069A /* SKTaskUtilsTests */,
 				8270D0A21CA6D76500B9069A /* Products */,
@@ -135,6 +143,7 @@
 				8270D0A71CA6D76500B9069A /* Sources */,
 				8270D0A81CA6D76500B9069A /* Frameworks */,
 				8270D0A91CA6D76500B9069A /* Resources */,
+				8270D0D91CA6E8AC00B9069A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,6 +207,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8270D0D91CA6E8AC00B9069A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OCHamcrest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OCMockito.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8270D09C1CA6D76500B9069A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -250,6 +277,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -297,6 +325,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -322,6 +351,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SKTaskUtils/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -338,6 +371,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SKTaskUtils/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -350,6 +387,10 @@
 		8270D0B91CA6D76500B9069A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SKTaskUtilsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKTaskUtilsTests;
@@ -360,6 +401,10 @@
 		8270D0BA1CA6D76500B9069A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SKTaskUtilsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKTaskUtilsTests;
