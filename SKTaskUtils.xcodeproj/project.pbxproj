@@ -37,8 +37,8 @@
 		8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaskQueue.h; sourceTree = "<group>"; };
 		8270D0BC1CA6D79800B9069A /* SKTaskQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaskQueue.m; sourceTree = "<group>"; };
 		8270D0BF1CA6D7AD00B9069A /* SKTaskQueueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaskQueueTest.m; sourceTree = "<group>"; };
-		8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = Carthage/Build/iOS/OCHamcrest.framework; sourceTree = "<group>"; };
-		8270D0D61CA6E7D200B9069A /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = Carthage/Build/iOS/OCMockito.framework; sourceTree = "<group>"; };
+		8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../Carthage/Build/iOS/OCHamcrest.framework; sourceTree = "<group>"; };
+		8270D0D61CA6E7D200B9069A /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = ../Carthage/Build/iOS/OCMockito.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,6 @@
 		8270D0971CA6D76500B9069A = {
 			isa = PBXGroup;
 			children = (
-				8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */,
-				8270D0D61CA6E7D200B9069A /* OCMockito.framework */,
 				8270D0A31CA6D76500B9069A /* SKTaskUtils */,
 				8270D0AF1CA6D76500B9069A /* SKTaskUtilsTests */,
 				8270D0A21CA6D76500B9069A /* Products */,
@@ -96,6 +94,8 @@
 		8270D0AF1CA6D76500B9069A /* SKTaskUtilsTests */ = {
 			isa = PBXGroup;
 			children = (
+				8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */,
+				8270D0D61CA6E7D200B9069A /* OCMockito.framework */,
 				8270D0B01CA6D76500B9069A /* SKTaskUtilsTests.m */,
 				8270D0B21CA6D76500B9069A /* Info.plist */,
 				8270D0BF1CA6D7AD00B9069A /* SKTaskQueueTest.m */,
