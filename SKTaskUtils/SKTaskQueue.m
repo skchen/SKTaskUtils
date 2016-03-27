@@ -15,4 +15,8 @@
     return self;
 }
 
+- (void)addTask:(SKTask *)task {
+
+}
+
 @end

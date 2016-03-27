@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKTask.h"
+
 @interface SKTaskQueue : NSObject
 
 - (instancetype)initWithMutableArray:(NSMutableArray *)taskArray;
+
+- (void)addTask:(SKTask *)task;
 
 @end

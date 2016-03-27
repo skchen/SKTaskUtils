@@ -8,6 +8,10 @@
 
 #import <XCTest/XCTest.h>
 
+#import "SKTaskQueue.h"
+
+@import OCMockito;
+
 @interface SKTaskQueueTest : XCTestCase
 
 @end
@@ -24,12 +28,18 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)test_shouldAddTask_whenTaskQueueIsEmpty {
     // given
+    NSMutableArray *mockTaskArray = mock([NSMutableArray class]);
+    [given([mockTaskArray count]) willReturnInt:0];
+    SKTask *mockTask = mock([SKTask class]);
+    SKTaskQueue *taskQueue = [[SKTaskQueue alloc] initWithMutableArray:mockTaskArray];
     
     // when
+    [taskQueue addTask:mockTask];
     
     // should
+    [verify(mockTaskArray) addObject:mockTask];
 }
 
 - (void)testPerformanceExample {
