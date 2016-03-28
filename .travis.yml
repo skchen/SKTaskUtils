@@ -4,19 +4,19 @@ xcode_project: SKTaskUtils.xcodeproj
 xcode_scheme: SKTaskUtils
 xcode_sdk: iphonesimulator
 before_install:
-  - brew update
-  - brew install carthage
+- brew update
+- brew install carthage
 before_script:
-  - carthage bootstrap --platform iOS
+- carthage bootstrap --platform iOS
 before_deploy:
-  - carthage build --no-skip-current --platform iOS
-  - carthage archive SKTaskUtils
-
+- carthage build --no-skip-current --platform iOS
+- carthage archive SKTaskUtils
 deploy:
   provider: releases
   api_key:
-    secure: kB27dXDvTOCk6OZAStzIdvVL6OH2KoDgqPWYcvJr8bx3amXzOYmmL/rEHqoldMwkXnQnI2vgNTONYSYitppw87TORmTFFby3fsDUDeZc6SIzv9KvL3d7Yd1GFHI4hzylB9We94qFIP4jKkLw7vABhISK5fUOMSg4O17l/+uAAQQ5IOwsRKbA3Co/vjEtw3EeH8V2xECBJuIICdoRPfcEHJm8g0OoTh7QhpZs2Olate+sXx7RgbibPFVZWDxgdJ0NVMhfOxsjLmwvcJ92xkbinkpzvmX/cN+5NZQSBHimz/wOuWkjA2D72TUpR+E+YpWlljpLoE+GOz9YAUl/UXcc4sdJ8xfcObJb4DpNYljv65QqP6+G4PT7TtvB58qQSEH+reHxiapkwa3NvYyQmgcUbng0ld2glJLWAyjoO9bs2MGhP/il9dbp9Vo9shkIl4wVSG3ZOlSSL7k3wP1B3VowSWEqNDH6AX/pKtzPU59PJsP1jDc1ioxCU667xVC45dnL3lDdCvIANSPb4W1H+9P7QUWNwjz7qzHAijLJa7SI6feIZ3ED22icBZHfN5E1jTx4gIvmBhzSFSrIUK7T4at1bTGxsN2nGVpSxCDd29wiPCZupm4SwOxD8itp9iFEGVTEW5dKQqpP31okrIgUSgfSRoLsosOKcTf/6rg9zYT/f28=
+    secure: mg1h+BbXkVI3sR8/fX/Zgcx42cOp/scGq9rRKonEl9ztDau1jVVUPRx1RH9uaAoEbTKl0Q+FWL/n9w1Ak7KPWMKbkHW3sEwqdXYqCbNiUECdtv8JkuNhf0e4XOeMtY5GC1gmoGVQQfiThhb7D2v+I4D7loHatdDA8pjYmDuJxYb4oN5Dkr7Sc8Yf3TjsyGafG74pcH4q9CrRPTtUYXVKfDjqM4XK62OeuCftlHVNNdnow7SDfR1fMbcnfsD0pA5BJpP5itvPKsmfa9TGV/mh+19Qi8A5lDwJ+AzPQ49JIOdxZ6tCxcxE34GmSG+Ut3YR3cVyrCm5MFROc0HGaEsPZ/f44VoIVQmGOUM3KHeYtpQmONqH6k7MY1BYkDqMrvOWz200RMYplM9zJFDC6iSN3tDb9m3HKzn0ZmAYbSVQY3yC0+o7SKb2aETWrA7qfqxQMiVFuXl1T2X106T7nQrwK3TSI8HS9ewM5OJC3gXL3jsiZu+fStAWzMGbmYj7r+4TGBxYvoHDPiPGBWEera11jvIAE5oo59w78PO2/41tasjJdwdTkx/TOfSuSdyUS6gK94DUsWAD/DENnqRFW5g3xDdVZOyuy9jD7hIgHQYFgGX0xV877NpDrfgRFLRWt8iXnFJJmEoDTVv8rhEacLxPLs6tbkoULKQR3DFrS8ghgHE=
   file: SKTaskUtils.framework.zip
   skip_cleanup: true
   on:
+    repo: skchen/SKTaskUtils
     tags: true
