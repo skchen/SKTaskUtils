@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKOrderedDictionary : NSMutableDictionary
+@interface SKOrderedDictionary : NSObject
+
+@property (readonly) NSUInteger count;
+
+- (void)removeAllObjects;
+
+- (void)setObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key;
+- (nullable id)objectForKey:(nonnull id<NSCopying>)key;
+- (void)removeObjectForKey:(nonnull id<NSCopying>)key;
+
+- (nullable id)objectAtIndex:(NSUInteger)index;
+- (void)removeObjectAtIndex:(NSUInteger)index;
 
 @end

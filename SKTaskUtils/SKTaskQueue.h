@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKOrderedDictionary.h"
 #import "SKTask.h"
 
 @interface SKTaskQueue : NSObject
 
 @property(nonatomic, assign) BOOL suspended;
 
-- (instancetype)initWithMutableArray:(NSMutableArray *)taskArray;
+- (instancetype)initWithOrderedDictionary:(SKOrderedDictionary *)taskArray;
 
 /**
- Insert task to head of task queue
+ Insert task to the beginning of task queue
  @param task    task to insert
  */
 - (void)insertTask:(SKTask *)task;
@@ -27,6 +28,12 @@
  @param task    task to add
  */
 - (void)addTask:(SKTask *)task;
+
+/**
+ Remove task
+ @param task    task to remove
+ */
+- (void)removeTask:(SKTask *)task;
 
 /**
  Remoev all tasks in task queue

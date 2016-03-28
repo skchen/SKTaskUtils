@@ -8,7 +8,20 @@
 
 #import <XCTest/XCTest.h>
 
+#import "SKOrderedDictionary.h"
+
+@import OCHamcrest;
+@import OCMockito;
+
+static NSString *const kKeyObject1 = @"key1";
+static NSString *const kKeyObject2 = @"key2";
+
 @interface SKOrderedDictionaryTest : XCTestCase
+
+@property(nonatomic, strong) SKOrderedDictionary *orderedDictionary;
+
+@property(nonatomic, strong) NSObject *dummyObject1;
+@property(nonatomic, strong) NSObject *dummyObject2;
 
 @end
 
@@ -16,7 +29,9 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    _orderedDictionary = [[SKOrderedDictionary alloc] init];
+    _dummyObject1 = mock([NSObject class]);
+    _dummyObject2 = mock([NSObject class]);
 }
 
 - (void)tearDown {
@@ -24,16 +39,62 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)test_countShouldBeOne_whenSetObjectForEmptyDictionary {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    assertThatUnsignedInteger(_orderedDictionary.count, is(equalToUnsignedInteger(1)));
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)test_countShouldBeTwo_whenSetObjectForDictionaryWithOneObject {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    [_orderedDictionary setObject:_dummyObject2 forKey:kKeyObject2];
+    
+    assertThatUnsignedInteger(_orderedDictionary.count, is(equalToUnsignedInteger(2)));
+}
+
+- (void)test_countShouldBeZero_whenRemoveAllObjects {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    [_orderedDictionary removeAllObjects];
+    
+    assertThatUnsignedInteger(_orderedDictionary.count, is(equalToUnsignedInteger(0)));
+}
+
+- (void)test_objectShouldMatch_whenRetriveObjectWithSpecificKey {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    id object = [_orderedDictionary objectForKey:kKeyObject1];
+    
+    assertThat(object, is(notNilValue()));
+    assertThat(object, is(equalTo(_dummyObject1)));
+}
+
+- (void)test_objectShouldBeRemoved_whenRemoveObjectForSpecificKey {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    [_orderedDictionary removeObjectForKey:kKeyObject1];
+    
+    id object = [_orderedDictionary objectForKey:kKeyObject1];
+    assertThat(object, is(nilValue()));
+}
+
+- (void)test_objectShouldMatch_whenRetriveObjectWithSpecificIndex {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    id object = [_orderedDictionary objectAtIndex:0];
+    
+    assertThat(object, is(notNilValue()));
+    assertThat(object, is(equalTo(_dummyObject1)));
+}
+
+- (void)test_objectShouldBeRemoved_whenRemoveObjectForSpecificIndex {
+    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    
+    [_orderedDictionary removeObjectAtIndex:0];
+    
+    id object = [_orderedDictionary objectForKey:kKeyObject1];
+    assertThat(object, is(nilValue()));
 }
 
 @end

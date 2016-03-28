@@ -16,7 +16,7 @@
 
 @property(nonatomic, strong) SKTaskQueue *taskQueue;
 
-@property(nonatomic, strong) NSMutableArray *mockTaskArray;
+@property(nonatomic, strong) SKOrderedDictionary *mockTaskArray;
 @property(nonatomic, strong) SKTask *mockTask;
 
 @end
@@ -26,9 +26,9 @@
 - (void)setUp {
     [super setUp];
     
-    _mockTaskArray = mock([NSMutableArray class]);
+    _mockTaskArray = mock([SKOrderedDictionary class]);
     _mockTask = mock([SKTask class]);
-    _taskQueue = [[SKTaskQueue alloc] initWithMutableArray:_mockTaskArray];
+    _taskQueue = [[SKTaskQueue alloc] initWithOrderedDictionary:_mockTaskArray];
 }
 
 - (void)tearDown {
