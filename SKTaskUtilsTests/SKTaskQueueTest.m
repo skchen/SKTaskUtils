@@ -14,13 +14,21 @@
 
 @interface SKTaskQueueTest : XCTestCase
 
+@property(nonatomic, strong) SKTaskQueue *taskQueue;
+
+@property(nonatomic, strong) NSMutableArray *mockTaskArray;
+@property(nonatomic, strong) SKTask *mockTask;
+
 @end
 
 @implementation SKTaskQueueTest
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    _mockTaskArray = mock([NSMutableArray class]);
+    _mockTask = mock([SKTask class]);
+    _taskQueue = [[SKTaskQueue alloc] initWithMutableArray:_mockTaskArray];
 }
 
 - (void)tearDown {
@@ -30,16 +38,32 @@
 
 - (void)test_shouldAddTask {
     // given
-    NSMutableArray *mockTaskArray = mock([NSMutableArray class]);
-    [given([mockTaskArray count]) willReturnInt:0];
-    SKTask *mockTask = mock([SKTask class]);
-    SKTaskQueue *taskQueue = [[SKTaskQueue alloc] initWithMutableArray:mockTaskArray];
+    [given([_mockTaskArray count]) willReturnInt:0];
     
     // when
-    [taskQueue addTask:mockTask];
+    [_taskQueue addTask:_mockTask];
     
     // should
-    [verify(mockTaskArray) addObject:mockTask];
+    [verify(_mockTaskArray) addObject:_mockTask];
+}
+
+- (void)test_shouldInsertTask {
+    // given
+    [given([_mockTaskArray count]) willReturnInt:0];
+    
+    // when
+    [_taskQueue insertTask:_mockTask];
+    
+    // should
+    [verify(_mockTaskArray) insertObject:_mockTask atIndex:0];
+}
+
+- (void)test_shouldClearTaskQueue_whenClearCalled {
+    // when
+    [_taskQueue cancelAllTasks];
+    
+    // should
+    [verify(_mockTaskArray) removeAllObjects];
 }
 
 @end
