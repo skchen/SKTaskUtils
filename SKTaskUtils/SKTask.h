@@ -10,4 +10,7 @@
 
 @interface SKTask : NSObject
 
+@property(nonatomic, copy, readonly, nonnull) NSString *name;
+@property(nonatomic, copy, readonly, nonnull) void (^block)(void);
+
 @end

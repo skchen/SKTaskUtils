@@ -40,21 +40,21 @@ static NSString *const kKeyObject2 = @"key2";
 }
 
 - (void)test_countShouldBeOne_whenSetObjectForEmptyDictionary {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
     assertThatUnsignedInteger(_orderedDictionary.count, is(equalToUnsignedInteger(1)));
 }
 
 - (void)test_countShouldBeTwo_whenSetObjectForDictionaryWithOneObject {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
-    [_orderedDictionary setObject:_dummyObject2 forKey:kKeyObject2];
+    [_orderedDictionary addObject:_dummyObject2 forKey:kKeyObject2];
     
     assertThatUnsignedInteger(_orderedDictionary.count, is(equalToUnsignedInteger(2)));
 }
 
 - (void)test_countShouldBeZero_whenRemoveAllObjects {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
     [_orderedDictionary removeAllObjects];
     
@@ -62,7 +62,7 @@ static NSString *const kKeyObject2 = @"key2";
 }
 
 - (void)test_objectShouldMatch_whenRetriveObjectWithSpecificKey {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
     id object = [_orderedDictionary objectForKey:kKeyObject1];
     
@@ -71,7 +71,7 @@ static NSString *const kKeyObject2 = @"key2";
 }
 
 - (void)test_objectShouldBeRemoved_whenRemoveObjectForSpecificKey {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
     [_orderedDictionary removeObjectForKey:kKeyObject1];
     
@@ -80,7 +80,7 @@ static NSString *const kKeyObject2 = @"key2";
 }
 
 - (void)test_objectShouldMatch_whenRetriveObjectWithSpecificIndex {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
     id object = [_orderedDictionary objectAtIndex:0];
     
@@ -88,8 +88,19 @@ static NSString *const kKeyObject2 = @"key2";
     assertThat(object, is(equalTo(_dummyObject1)));
 }
 
+- (void)test_objectShouldMatch_whenInsertObjectWithSpecificIndex {
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
+    
+    [_orderedDictionary insertObject:_dummyObject2 atIndex:0 forKey:kKeyObject2];
+    
+    id object = [_orderedDictionary objectAtIndex:0];
+    
+    assertThat(object, is(notNilValue()));
+    assertThat(object, is(equalTo(_dummyObject2)));
+}
+
 - (void)test_objectShouldBeRemoved_whenRemoveObjectForSpecificIndex {
-    [_orderedDictionary setObject:_dummyObject1 forKey:kKeyObject1];
+    [_orderedDictionary addObject:_dummyObject1 forKey:kKeyObject1];
     
     [_orderedDictionary removeObjectAtIndex:0];
     

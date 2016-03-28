@@ -21,13 +21,18 @@
 
 @end
 
+static NSString *const kTaskName1 = @"Test Task 1";
+
 @implementation SKTaskQueueTest
 
 - (void)setUp {
     [super setUp];
     
     _mockTaskArray = mock([SKOrderedDictionary class]);
+    
     _mockTask = mock([SKTask class]);
+    [given([_mockTask name]) willReturn:kTaskName1];
+    
     _taskQueue = [[SKTaskQueue alloc] initWithOrderedDictionary:_mockTaskArray];
 }
 
@@ -44,7 +49,18 @@
     [_taskQueue addTask:_mockTask];
     
     // should
-    [verify(_mockTaskArray) addObject:_mockTask];
+    [verify(_mockTaskArray) addObject:_mockTask forKey:kTaskName1];
+}
+
+- (void)test_taskShouldStartImmediately_whenTaskAddedWithEmptyTaskArray {
+    // given
+    [given([_mockTaskArray count]) willReturnInt:0];
+    
+    // when
+    [_taskQueue addTask:_mockTask];
+    
+    // should
+    [verify(_mockTaskArray) addObject:_mockTask forKey:kTaskName1];
 }
 
 - (void)test_shouldInsertTask {
@@ -55,7 +71,7 @@
     [_taskQueue insertTask:_mockTask];
     
     // should
-    [verify(_mockTaskArray) insertObject:_mockTask atIndex:0];
+    [verify(_mockTaskArray) insertObject:_mockTask atIndex:0 forKey:kTaskName1];
 }
 
 - (void)test_shouldClearTaskQueue_whenClearCalled {

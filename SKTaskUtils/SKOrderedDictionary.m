@@ -33,11 +33,6 @@
     [_array removeAllObjects];
 }
 
-- (void)setObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key {
-    [_dictionary setObject:object forKey:key];
-    [_array addObject:object];
-}
-
 - (nullable id)objectForKey:(nonnull id<NSCopying>)key {
     return [_dictionary objectForKey:key];
 }
@@ -65,6 +60,16 @@
     }
     
     [_array removeObject:object];
+}
+
+- (void)insertObject:(nonnull id)object atIndex:(NSUInteger)index forKey:(nonnull id<NSCopying>)key {
+    [_dictionary setObject:object forKey:key];
+    [_array insertObject:object atIndex:index];
+}
+
+- (void)addObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key {
+    [_dictionary setObject:object forKey:key];
+    [_array addObject:object];
 }
 
 @end

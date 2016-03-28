@@ -14,11 +14,13 @@
 
 - (void)removeAllObjects;
 
-- (void)setObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key;
 - (nullable id)objectForKey:(nonnull id<NSCopying>)key;
 - (void)removeObjectForKey:(nonnull id<NSCopying>)key;
 
 - (nullable id)objectAtIndex:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
+
+- (void)insertObject:(nonnull id)object atIndex:(NSUInteger)index forKey:(nonnull id<NSCopying>)key;
+- (void)addObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key;
 
 @end
