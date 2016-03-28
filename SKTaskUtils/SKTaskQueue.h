@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKOrderedDictionary.h"
+#import <SKUtils/SKOrderedDictionary.h>
 #import "SKTask.h"
 
 @interface SKTaskQueue : NSObject

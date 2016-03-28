@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char SKTaskUtilsVersionString[];
 
 #import <SKTaskUtils/SKTask.h>
 #import <SKTaskUtils/SKTaskQueue.h>
-#import <SKTaskUtils/SKOrderedDictionary.h>
 
 
 

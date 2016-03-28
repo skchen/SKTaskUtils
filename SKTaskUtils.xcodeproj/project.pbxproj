@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8268037D1CA978BA00C8B952 /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
+		8268037F1CA97A8800C8B952 /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
 		8270D0A51CA6D76500B9069A /* SKTaskUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0A41CA6D76500B9069A /* SKTaskUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8270D0AC1CA6D76500B9069A /* SKTaskUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8270D0B11CA6D76500B9069A /* SKTaskUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0B01CA6D76500B9069A /* SKTaskUtilsTests.m */; };
@@ -17,9 +19,6 @@
 		8270D0D81CA6E7D200B9069A /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D0D61CA6E7D200B9069A /* OCMockito.framework */; };
 		8270D0DC1CA8186300B9069A /* SKTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0DA1CA8186300B9069A /* SKTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8270D0DD1CA8186300B9069A /* SKTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0DB1CA8186300B9069A /* SKTask.m */; };
-		8270D0E01CA8BAA200B9069A /* SKOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0DE1CA8BAA200B9069A /* SKOrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8270D0E11CA8BAA200B9069A /* SKOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0DF1CA8BAA200B9069A /* SKOrderedDictionary.m */; };
-		8270D0E31CA8BACD00B9069A /* SKOrderedDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0E21CA8BACD00B9069A /* SKOrderedDictionaryTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8268037C1CA978BA00C8B952 /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = ../../Carthage/Build/iOS/SKUtils.framework; sourceTree = "<group>"; };
 		8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTaskUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8270D0A41CA6D76500B9069A /* SKTaskUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTaskUtils.h; sourceTree = "<group>"; };
 		8270D0A61CA6D76500B9069A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,13 +42,10 @@
 		8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaskQueue.h; sourceTree = "<group>"; };
 		8270D0BC1CA6D79800B9069A /* SKTaskQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaskQueue.m; sourceTree = "<group>"; };
 		8270D0BF1CA6D7AD00B9069A /* SKTaskQueueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaskQueueTest.m; sourceTree = "<group>"; };
-		8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../Carthage/Build/iOS/OCHamcrest.framework; sourceTree = "<group>"; };
-		8270D0D61CA6E7D200B9069A /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = ../Carthage/Build/iOS/OCMockito.framework; sourceTree = "<group>"; };
+		8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../../Carthage/Build/iOS/OCHamcrest.framework; sourceTree = "<group>"; };
+		8270D0D61CA6E7D200B9069A /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = ../../Carthage/Build/iOS/OCMockito.framework; sourceTree = "<group>"; };
 		8270D0DA1CA8186300B9069A /* SKTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTask.h; sourceTree = "<group>"; };
 		8270D0DB1CA8186300B9069A /* SKTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTask.m; sourceTree = "<group>"; };
-		8270D0DE1CA8BAA200B9069A /* SKOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKOrderedDictionary.h; sourceTree = "<group>"; };
-		8270D0DF1CA8BAA200B9069A /* SKOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKOrderedDictionary.m; sourceTree = "<group>"; };
-		8270D0E21CA8BACD00B9069A /* SKOrderedDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKOrderedDictionaryTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8268037D1CA978BA00C8B952 /* SKUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8268037F1CA97A8800C8B952 /* SKUtils.framework in Frameworks */,
 				8270D0D71CA6E7D200B9069A /* OCHamcrest.framework in Frameworks */,
 				8270D0D81CA6E7D200B9069A /* OCMockito.framework in Frameworks */,
 				8270D0AC1CA6D76500B9069A /* SKTaskUtils.framework in Frameworks */,
@@ -72,6 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8268037A1CA9783700C8B952 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */,
+				8270D0D61CA6E7D200B9069A /* OCMockito.framework */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		8268037B1CA9788900C8B952 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8268037C1CA978BA00C8B952 /* SKUtils.framework */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
 		8270D0971CA6D76500B9069A = {
 			isa = PBXGroup;
 			children = (
@@ -94,13 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				8270D0A41CA6D76500B9069A /* SKTaskUtils.h */,
-				8270D0A61CA6D76500B9069A /* Info.plist */,
 				8270D0DA1CA8186300B9069A /* SKTask.h */,
 				8270D0DB1CA8186300B9069A /* SKTask.m */,
 				8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */,
 				8270D0BC1CA6D79800B9069A /* SKTaskQueue.m */,
-				8270D0DE1CA8BAA200B9069A /* SKOrderedDictionary.h */,
-				8270D0DF1CA8BAA200B9069A /* SKOrderedDictionary.m */,
+				8268037B1CA9788900C8B952 /* frameworks */,
+				8270D0A61CA6D76500B9069A /* Info.plist */,
 			);
 			path = SKTaskUtils;
 			sourceTree = "<group>";
@@ -108,12 +123,10 @@
 		8270D0AF1CA6D76500B9069A /* SKTaskUtilsTests */ = {
 			isa = PBXGroup;
 			children = (
-				8270D0D51CA6E7D200B9069A /* OCHamcrest.framework */,
-				8270D0D61CA6E7D200B9069A /* OCMockito.framework */,
 				8270D0B01CA6D76500B9069A /* SKTaskUtilsTests.m */,
-				8270D0B21CA6D76500B9069A /* Info.plist */,
 				8270D0BF1CA6D7AD00B9069A /* SKTaskQueueTest.m */,
-				8270D0E21CA8BACD00B9069A /* SKOrderedDictionaryTest.m */,
+				8268037A1CA9783700C8B952 /* frameworks */,
+				8270D0B21CA6D76500B9069A /* Info.plist */,
 			);
 			path = SKTaskUtilsTests;
 			sourceTree = "<group>";
@@ -125,7 +138,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8270D0E01CA8BAA200B9069A /* SKOrderedDictionary.h in Headers */,
 				8270D0DC1CA8186300B9069A /* SKTask.h in Headers */,
 				8270D0A51CA6D76500B9069A /* SKTaskUtils.h in Headers */,
 				8270D0BD1CA6D79800B9069A /* SKTaskQueue.h in Headers */,
@@ -143,6 +155,7 @@
 				8270D09D1CA6D76500B9069A /* Frameworks */,
 				8270D09E1CA6D76500B9069A /* Headers */,
 				8270D09F1CA6D76500B9069A /* Resources */,
+				8268037E1CA978F600C8B952 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -225,6 +238,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8268037E1CA978F600C8B952 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SKUtils.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		8270D0D91CA6E8AC00B9069A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +260,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/OCHamcrest.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OCMockito.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SKUtils.framework",
 			);
 			outputPaths = (
 			);
@@ -249,7 +277,6 @@
 			files = (
 				8270D0DD1CA8186300B9069A /* SKTask.m in Sources */,
 				8270D0BE1CA6D79800B9069A /* SKTaskQueue.m in Sources */,
-				8270D0E11CA8BAA200B9069A /* SKOrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +284,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8270D0E31CA8BACD00B9069A /* SKOrderedDictionaryTest.m in Sources */,
 				8270D0C01CA6D7AD00B9069A /* SKTaskQueueTest.m in Sources */,
 				8270D0B11CA6D76500B9069A /* SKTaskUtilsTests.m in Sources */,
 			);

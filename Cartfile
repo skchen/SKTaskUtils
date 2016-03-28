@@ -1,1 +1,2 @@
-github "jonreid/OCMockito" "master"
+github "skchen/SKUtils" ~> 0.1
+
