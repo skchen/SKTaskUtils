@@ -42,32 +42,42 @@
 }
 
 - (void)insertTask:(SKTask *)task {
-    [_taskArray insertObject:task atIndex:0 forKey:task.id];
+    @synchronized(self) {
+        [_taskArray insertObject:task atIndex:0 forKey:task.id];
+    }
     [self dispatchTasks];
 }
 
 - (void)addTask:(SKTask *)task {
-    [_taskArray addObject:task forKey:task.id];
+    @synchronized(self) {
+        [_taskArray addObject:task forKey:task.id];
+    }
     [self dispatchTasks];
 }
 
 - (void)removeTask:(SKTask *)task {
-    [_taskArray removeObjectForKey:task.id];
+    @synchronized(self) {
+        [_taskArray removeObjectForKey:task.id];
+    }
 }
 
 - (void)cancelAllTasks {
-    [_taskArray removeAllObjects];
+    @synchronized(self) {
+        [_taskArray removeAllObjects];
+    }
 }
 
 - (SKTask *)popTask {
-    if([_taskArray count]>0) {
-        SKTask *task = [_taskArray objectAtIndex:0];
-        if(task) {
-            [_taskArray removeObjectForKey:task.id];
+    @synchronized(self) {
+        if([_taskArray count]>0) {
+            SKTask *task = [_taskArray objectAtIndex:0];
+            if(task) {
+                [_taskArray removeObjectForKey:task.id];
+            }
+            return task;
         }
-        return task;
+        return nil;
     }
-    return nil;
 }
 
 - (void)dispatchTasks {
