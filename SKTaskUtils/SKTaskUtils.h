@@ -16,4 +16,9 @@ FOUNDATION_EXPORT const unsigned char SKTaskUtilsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SKTaskUtils/PublicHeader.h>
 
+#import <SKTaskUtils/SKTask.h>
+#import <SKTaskUtils/SKTaskQueue.h>
+#import <SKTaskUtils/SKOrderedDictionary.h>
+
+
 
