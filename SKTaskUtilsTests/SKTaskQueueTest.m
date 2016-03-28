@@ -19,13 +19,10 @@
 @property(nonatomic, strong) SKOrderedDictionary *taskArray;
 @property(nonatomic, strong) SKTask *mockTask1;
 @property(nonatomic, strong) SKTask *mockTask2;
+@property(nonatomic, strong) SKTask *mockTask2r;
 @property(nonatomic, strong) SKTask *mockTask3;
 
 @end
-
-static NSString *const kTaskName1 = @"Test Task 1";
-static NSString *const kTaskName2 = @"Test Task 2";
-static NSString *const kTaskName3 = @"Test Task 3";
 
 @implementation SKTaskQueueTest
 
@@ -34,22 +31,32 @@ static NSString *const kTaskName3 = @"Test Task 3";
     
     _taskArray = [[SKOrderedDictionary alloc] init];
     
+    id mockTask1Id = @"Task1";
     _mockTask1 = mock([SKTask class]);
-    [given([_mockTask1 id]) willReturn:kTaskName1];
+    [given([_mockTask1 id]) willReturn:mockTask1Id];
     [given([_mockTask1 block]) willReturn:^{
-        NSLog(@"My name is %@", kTaskName1);
+        NSLog(@"Task1");
     }];
     
+    id mockTask2Id = @"Task2";
     _mockTask2 = mock([SKTask class]);
-    [given([_mockTask2 id]) willReturn:kTaskName2];
+    [given([_mockTask2 id]) willReturn:mockTask2Id];
     [given([_mockTask2 block]) willReturn:^{
-        NSLog(@"My name is %@", kTaskName2);
+        NSLog(@"Task2");
     }];
     
+    //id mockTask2rId = @"Task2";
+    _mockTask2r = mock([SKTask class]);
+    [given([_mockTask2r id]) willReturn:mockTask2Id];
+    [given([_mockTask2r block]) willReturn:^{
+        NSLog(@"Task2r");
+    }];
+    
+    id mockTask3Id = @"Task3";
     _mockTask3 = mock([SKTask class]);
-    [given([_mockTask3 id]) willReturn:kTaskName3];
+    [given([_mockTask3 id]) willReturn:mockTask3Id];
     [given([_mockTask3 block]) willReturn:^{
-        NSLog(@"My name is %@", kTaskName3);
+        NSLog(@"Task3");
     }];
     
     _taskQueue = [[SKTaskQueue alloc] initWithOrderedDictionary:_taskArray];
@@ -102,14 +109,16 @@ static NSString *const kTaskName3 = @"Test Task 3";
     [_taskQueue addTask:_mockTask1];
     [_taskQueue addTask:_mockTask2];
     [_taskQueue insertTask:_mockTask3];
-    [_taskQueue insertTask:_mockTask2];
+    [_taskQueue insertTask:_mockTask2r];
     _taskQueue.suspended = NO;
     
     // should
     [NSThread sleepForTimeInterval:(double)1];
-    [verify(_mockTask2) block];
+    [verify(_mockTask2r) block];
     [verify(_mockTask3) block];
     [verify(_mockTask1) block];
+    
+    [verifyCount(_mockTask2, never()) block];
 }
 
 - (void)test_shouldAddTask_whenTaskIsAlreadyInQueue {
@@ -120,14 +129,16 @@ static NSString *const kTaskName3 = @"Test Task 3";
     [_taskQueue addTask:_mockTask1];
     [_taskQueue addTask:_mockTask2];
     [_taskQueue addTask:_mockTask3];
-    [_taskQueue addTask:_mockTask2];
+    [_taskQueue addTask:_mockTask2r];
     _taskQueue.suspended = NO;
     
     // should
     [NSThread sleepForTimeInterval:(double)1];
-    [verify(_mockTask2) block];
-    [verify(_mockTask3) block];
     [verify(_mockTask1) block];
+    [verify(_mockTask2r) block];
+    [verify(_mockTask3) block];
+    
+    [verifyCount(_mockTask2, never()) block];
 }
 
 @end

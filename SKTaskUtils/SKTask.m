@@ -19,4 +19,13 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object {
+    if([object isKindOfClass:[SKTask class]]) {
+        SKTask *rightHandSide = (SKTask *)object;
+        return [_id isEqual:rightHandSide.id];
+    }
+    
+    return [super isEqual:object];
+}
+
 @end

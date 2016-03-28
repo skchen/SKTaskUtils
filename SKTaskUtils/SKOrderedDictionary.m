@@ -38,38 +38,31 @@
 }
 
 - (void)removeObjectForKey:(nonnull id<NSCopying>)key {
-    id object = [_dictionary objectForKey:key];
-    
     [_dictionary removeObjectForKey:key];
-    [_array removeObject:object];
+    [_array removeObject:key];
 }
 
 - (nullable id)objectAtIndex:(NSUInteger)index {
-    return [_array objectAtIndex:index];
+    id key = [_array objectAtIndex:index];
+    return [_dictionary objectForKey:key];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-    id object = [_array objectAtIndex:index];
-    
-    NSArray *keys = [_dictionary allKeys];
-    for(NSObject *key in keys) {
-        if([[_dictionary objectForKey:key] isEqual:object]) {
-            [_dictionary removeObjectForKey:key];
-            break;
-        }
-    }
-    
-    [_array removeObject:object];
+    id key = [_array objectAtIndex:index];
+    [_dictionary removeObjectForKey:key];
+    [_array removeObject:key];
 }
 
 - (void)insertObject:(nonnull id)object atIndex:(NSUInteger)index forKey:(nonnull id<NSCopying>)key {
     [_dictionary setObject:object forKey:key];
-    [_array insertObject:object atIndex:index];
+    [_array removeObject:key];
+    [_array insertObject:key atIndex:index];
 }
 
 - (void)addObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key {
     [_dictionary setObject:object forKey:key];
-    [_array addObject:object];
+    [_array removeObject:key];
+    [_array addObject:key];
 }
 
 @end
