@@ -10,7 +10,9 @@
 
 @interface SKTask : NSObject
 
-@property(nonatomic, copy, readonly, nonnull) NSString *name;
+- (nonnull instancetype)initWithId:(nonnull id)id block:(void (^_Nonnull)(void))block;
+
+@property(nonatomic, copy, readonly, nonnull) id id;
 @property(nonatomic, copy, readonly, nonnull) void (^block)(void);
 
 @end

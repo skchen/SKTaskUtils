@@ -10,4 +10,13 @@
 
 @implementation SKTask
 
+- (instancetype)initWithId:(id)id block:(void (^_Nonnull)(void))block {
+    self = [super init];
+    
+    _id = id;
+    _block = block;
+    
+    return self;
+}
+
 @end

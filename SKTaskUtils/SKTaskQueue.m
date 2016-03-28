@@ -34,18 +34,25 @@
     return self;
 }
 
+- (void)setSuspended:(BOOL)suspended {
+    _suspended = suspended;
+    if(!_suspended) {
+        [self dispatchTasks];
+    }
+}
+
 - (void)insertTask:(SKTask *)task {
-    [_taskArray insertObject:task atIndex:0 forKey:task.name];
+    [_taskArray insertObject:task atIndex:0 forKey:task.id];
     [self dispatchTasks];
 }
 
 - (void)addTask:(SKTask *)task {
-    [_taskArray addObject:task forKey:task.name];
+    [_taskArray addObject:task forKey:task.id];
     [self dispatchTasks];
 }
 
 - (void)removeTask:(SKTask *)task {
-    [_taskArray removeObjectForKey:task.name];
+    [_taskArray removeObjectForKey:task.id];
 }
 
 - (void)cancelAllTasks {
@@ -53,15 +60,18 @@
 }
 
 - (SKTask *)popTask {
-    SKTask *task = [_taskArray objectAtIndex:0];
-    if(task) {
-        [_taskArray removeObjectForKey:task.name];
+    if([_taskArray count]>0) {
+        SKTask *task = [_taskArray objectAtIndex:0];
+        if(task) {
+            [_taskArray removeObjectForKey:task.id];
+        }
+        return task;
     }
-    return task;
+    return nil;
 }
 
 - (void)dispatchTasks {
-    if(!_executing) {
+    if(!_executing && !_suspended) {
         SKTask *firstTask = [self popTask];
         if(firstTask) {
             _executing = firstTask;
