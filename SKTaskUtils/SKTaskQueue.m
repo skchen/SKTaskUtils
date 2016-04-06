@@ -21,10 +21,19 @@
 
 @implementation SKTaskQueue
 
-- (instancetype)initWithOrderedDictionary:(SKOrderedDictionary *)taskArray {
++ (SKOrderedDictionary *)defaultOrderedDictionary {
+    return [[SKOrderedDictionary alloc] init];
+}
+
+- (nonnull instancetype)initWithOrderedDictionary:(nullable SKOrderedDictionary *)taskArray {
     self = [super init];
     
-    _taskArray = taskArray;
+    if(taskArray) {
+        _taskArray = taskArray;
+    } else {
+        _taskArray = [SKTaskQueue defaultOrderedDictionary];
+    }
+    
     _suspended = NO;
     _executing = nil;
     
@@ -32,6 +41,10 @@
     _queue = dispatch_queue_create([bundleIdentifier UTF8String], NULL);
     
     return self;
+}
+
+- (nonnull instancetype)init {
+    return [self initWithOrderedDictionary:nil];
 }
 
 - (void)setSuspended:(BOOL)suspended {

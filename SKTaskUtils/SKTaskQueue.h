@@ -15,25 +15,26 @@
 
 @property(nonatomic, assign) BOOL suspended;
 
-- (instancetype)initWithOrderedDictionary:(SKOrderedDictionary *)taskArray;
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithOrderedDictionary:(nullable SKOrderedDictionary *)taskArray;
 
 /**
  Insert task to the beginning of task queue
  @param task    task to insert
  */
-- (void)insertTask:(SKTask *)task;
+- (void)insertTask:(nonnull SKTask *)task;
 
 /**
  Add task to the end of task queue
  @param task    task to add
  */
-- (void)addTask:(SKTask *)task;
+- (void)addTask:(nonnull SKTask *)task;
 
 /**
  Remove task
  @param task    task to remove
  */
-- (void)removeTask:(SKTask *)task;
+- (void)removeTask:(nonnull SKTask *)task;
 
 /**
  Remoev all tasks in task queue
