@@ -24,14 +24,16 @@
 
 @end
 
-@implementation SKTaskQueueTest
+@implementation SKTaskQueueTest {
+    NSString *mockTask1Id;
+}
 
 - (void)setUp {
     [super setUp];
     
     _taskArray = [[SKOrderedDictionary alloc] init];
     
-    id mockTask1Id = @"Task1";
+    mockTask1Id = @"Task1";
     _mockTask1 = mock([SKTask class]);
     [given([_mockTask1 id]) willReturn:mockTask1Id];
     [given([_mockTask1 block]) willReturn:^{
@@ -139,6 +141,32 @@
     [verify(_mockTask3) block];
     
     [verifyCount(_mockTask2, never()) block];
+}
+
+- (void)test_shouldNotInsertTask_whenTaskIsExecuting {
+    SKTask *mockExecuting = mock([SKTask class]);
+    [given([mockExecuting id]) willReturn:mockTask1Id];
+    SKOrderedDictionary *mockOrderedDictionary = mock([SKOrderedDictionary class]);
+    [_taskQueue setValue:mockExecuting forKey:@"executing"];
+    [_taskQueue setValue:mockOrderedDictionary forKey:@"taskArray"];
+    
+    [_taskQueue insertTask:_mockTask1];
+    [NSThread sleepForTimeInterval:(double)1];
+    
+    [verifyCount(mockOrderedDictionary, never()) insertObject:_mockTask1 atIndex:0 forKey:mockTask1Id];
+}
+
+- (void)test_shouldNotAddTask_whenTaskIsExecuting {
+    SKTask *mockExecuting = mock([SKTask class]);
+    [given([mockExecuting id]) willReturn:mockTask1Id];
+    SKOrderedDictionary *mockOrderedDictionary = mock([SKOrderedDictionary class]);
+    [_taskQueue setValue:mockExecuting forKey:@"executing"];
+    [_taskQueue setValue:mockOrderedDictionary forKey:@"taskArray"];
+     
+    [_taskQueue addTask:_mockTask1];
+    [NSThread sleepForTimeInterval:(double)1];
+    
+    [verifyCount(mockOrderedDictionary, never()) addObject:_mockTask1 forKey:mockTask1Id];
 }
 
 @end

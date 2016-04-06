@@ -55,17 +55,21 @@
 }
 
 - (void)insertTask:(SKTask *)task {
-    @synchronized(self) {
-        [_taskArray insertObject:task atIndex:0 forKey:task.id];
+    if(task.id!=_executing.id) {
+        @synchronized(self) {
+            [_taskArray insertObject:task atIndex:0 forKey:task.id];
+        }
+        [self dispatchTasks];
     }
-    [self dispatchTasks];
 }
 
 - (void)addTask:(SKTask *)task {
-    @synchronized(self) {
-        [_taskArray addObject:task forKey:task.id];
+    if(task.id!=_executing.id) {
+        @synchronized(self) {
+            [_taskArray addObject:task forKey:task.id];
+        }
+        [self dispatchTasks];
     }
-    [self dispatchTasks];
 }
 
 - (void)removeTask:(SKTask *)task {
