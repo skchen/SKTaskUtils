@@ -12,7 +12,7 @@
 
 @property(nonatomic, strong) SKTask *executing;
 @property(nonatomic, strong) SKOrderedDictionary *taskArray;
-@property(nonatomic, strong) dispatch_queue_t queue;
+@property(nonatomic, copy) dispatch_queue_t queue;
 
 - (SKTask *)popTask;
 - (void)dispatchTasks;
@@ -39,7 +39,6 @@
     
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     _queue = dispatch_queue_create([bundleIdentifier UTF8String], NULL);
-    
     return self;
 }
 
@@ -98,16 +97,18 @@
 }
 
 - (void)dispatchTasks {
-    if(!_executing && !_suspended) {
-        SKTask *firstTask = [self popTask];
-        if(firstTask) {
-            _executing = firstTask;
-            dispatch_async(_queue, ^{
-                _executing.block();
-                _executing = nil;
-                
-                [self dispatchTasks];
-            });
+    @synchronized (self) {
+        if(!_executing && !_suspended) {
+            SKTask *firstTask = [self popTask];
+            if(firstTask) {
+                _executing = firstTask;
+                dispatch_async(_queue, ^{
+                    _executing.block();
+                    _executing = nil;
+                    
+                    [self dispatchTasks];
+                });
+            }
         }
     }
 }
