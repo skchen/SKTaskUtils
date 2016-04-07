@@ -6,7 +6,28 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		8225863A1CB6EE4B00E01E7D /* SKTaskUtils-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8225863B1CB6EE4B00E01E7D /* Build configuration list for PBXAggregateTarget "SKTaskUtils-Universal" */;
+			buildPhases = (
+				822586401CB6EE5B00E01E7D /* ShellScript */,
+			);
+			dependencies = (
+				8225863F1CB6EE5800E01E7D /* PBXTargetDependency */,
+			);
+			name = "SKTaskUtils-Universal";
+			productName = "SKTaskUtils-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		822586281CB6EC0300E01E7D /* SKTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0DB1CA8186300B9069A /* SKTask.m */; };
+		822586291CB6EC0300E01E7D /* SKTaskQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270D0BC1CA6D79800B9069A /* SKTaskQueue.m */; };
+		8225862D1CB6EC0300E01E7D /* SKTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0DA1CA8186300B9069A /* SKTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8225862E1CB6EC0300E01E7D /* SKTaskUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0A41CA6D76500B9069A /* SKTaskUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8225862F1CB6EC0300E01E7D /* SKTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		822586391CB6ED1C00E01E7D /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822586381CB6ED1C00E01E7D /* SKUtils.framework */; };
 		8268037D1CA978BA00C8B952 /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
 		8268037F1CA97A8800C8B952 /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
 		8270D0A51CA6D76500B9069A /* SKTaskUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0A41CA6D76500B9069A /* SKTaskUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8225863E1CB6EE5800E01E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8270D0981CA6D76500B9069A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 822586261CB6EC0300E01E7D;
+			remoteInfo = "SKTaskUtils-iOS7";
+		};
 		8270D0AD1CA6D76500B9069A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8270D0981CA6D76500B9069A /* Project object */;
@@ -32,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		822586351CB6EC0300E01E7D /* SKTaskUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTaskUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		822586381CB6ED1C00E01E7D /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKUtils.framework; sourceTree = "<group>"; };
 		8268037C1CA978BA00C8B952 /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = ../../Carthage/Build/iOS/SKUtils.framework; sourceTree = "<group>"; };
 		8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTaskUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8270D0A41CA6D76500B9069A /* SKTaskUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTaskUtils.h; sourceTree = "<group>"; };
@@ -49,6 +79,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8225862A1CB6EC0300E01E7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822586391CB6ED1C00E01E7D /* SKUtils.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8270D09D1CA6D76500B9069A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +121,7 @@
 		8268037B1CA9788900C8B952 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				822586381CB6ED1C00E01E7D /* SKUtils.framework */,
 				8268037C1CA978BA00C8B952 /* SKUtils.framework */,
 			);
 			path = frameworks;
@@ -102,6 +141,7 @@
 			children = (
 				8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */,
 				8270D0AB1CA6D76500B9069A /* SKTaskUtilsTests.xctest */,
+				822586351CB6EC0300E01E7D /* SKTaskUtils.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +174,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8225862C1CB6EC0300E01E7D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8225862D1CB6EC0300E01E7D /* SKTask.h in Headers */,
+				8225862E1CB6EC0300E01E7D /* SKTaskUtils.h in Headers */,
+				8225862F1CB6EC0300E01E7D /* SKTaskQueue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8270D09E1CA6D76500B9069A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,6 +197,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		822586261CB6EC0300E01E7D /* SKTaskUtils-iOS7 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 822586321CB6EC0300E01E7D /* Build configuration list for PBXNativeTarget "SKTaskUtils-iOS7" */;
+			buildPhases = (
+				822586271CB6EC0300E01E7D /* Sources */,
+				8225862A1CB6EC0300E01E7D /* Frameworks */,
+				8225862C1CB6EC0300E01E7D /* Headers */,
+				822586301CB6EC0300E01E7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SKTaskUtils-iOS7";
+			productName = SKTaskUtils;
+			productReference = 822586351CB6EC0300E01E7D /* SKTaskUtils.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8270D0A01CA6D76500B9069A /* SKTaskUtils */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8270D0B51CA6D76500B9069A /* Build configuration list for PBXNativeTarget "SKTaskUtils" */;
@@ -194,6 +262,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = SK;
 				TargetAttributes = {
+					8225863A1CB6EE4B00E01E7D = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					8270D0A01CA6D76500B9069A = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -216,11 +287,20 @@
 			targets = (
 				8270D0A01CA6D76500B9069A /* SKTaskUtils */,
 				8270D0AA1CA6D76500B9069A /* SKTaskUtilsTests */,
+				822586261CB6EC0300E01E7D /* SKTaskUtils-iOS7 */,
+				8225863A1CB6EE4B00E01E7D /* SKTaskUtils-Universal */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		822586301CB6EC0300E01E7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8270D09F1CA6D76500B9069A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +318,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		822586401CB6EE5B00E01E7D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=false\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -scheme ${PROJECT_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -scheme ${PROJECT_NAME} -sdk iphoneos -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n                                                                      \n                                                                      if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n                                                                      cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n                                                                      \n                                                                      ######################\n                                                                      # On Release, copy the result to release directory\n                                                                      ######################\n                                                                      OUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n                                                                      \n                                                                      rm -rf \"$OUTPUT_DIR\"\n                                                                      mkdir -p \"$OUTPUT_DIR\"\n                                                                      \n                                                                      cp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n                                                                      \n                                                                      if [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n                                                                      open \"${OUTPUT_DIR}/\"\n                                                                      fi";
+		};
 		8268037E1CA978F600C8B952 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +364,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		822586271CB6EC0300E01E7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822586281CB6EC0300E01E7D /* SKTask.m in Sources */,
+				822586291CB6EC0300E01E7D /* SKTaskQueue.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8270D09C1CA6D76500B9069A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +394,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8225863F1CB6EE5800E01E7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 822586261CB6EC0300E01E7D /* SKTaskUtils-iOS7 */;
+			targetProxy = 8225863E1CB6EE5800E01E7D /* PBXContainerItemProxy */;
+		};
 		8270D0AE1CA6D76500B9069A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8270D0A01CA6D76500B9069A /* SKTaskUtils */;
@@ -300,6 +407,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		822586331CB6EC0300E01E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SKTaskUtils/frameworks",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SKTaskUtils/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKTaskUtils;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		822586341CB6EC0300E01E7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SKTaskUtils/frameworks",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SKTaskUtils/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKTaskUtils;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8225863C1CB6EE4B00E01E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8225863D1CB6EE4B00E01E7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		8270D0B31CA6D76500B9069A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -461,6 +626,23 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		822586321CB6EC0300E01E7D /* Build configuration list for PBXNativeTarget "SKTaskUtils-iOS7" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				822586331CB6EC0300E01E7D /* Debug */,
+				822586341CB6EC0300E01E7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8225863B1CB6EE4B00E01E7D /* Build configuration list for PBXAggregateTarget "SKTaskUtils-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8225863C1CB6EE4B00E01E7D /* Debug */,
+				8225863D1CB6EE4B00E01E7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8270D09B1CA6D76500B9069A /* Build configuration list for PBXProject "SKTaskUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
