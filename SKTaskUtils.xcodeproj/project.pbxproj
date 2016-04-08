@@ -26,7 +26,7 @@
 		8225862D1CB6EC0300E01E7D /* SKTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0DA1CA8186300B9069A /* SKTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8225862E1CB6EC0300E01E7D /* SKTaskUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0A41CA6D76500B9069A /* SKTaskUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8225862F1CB6EC0300E01E7D /* SKTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0BB1CA6D79800B9069A /* SKTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		822586391CB6ED1C00E01E7D /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822586381CB6ED1C00E01E7D /* SKUtils.framework */; };
+		822586861CB7924400E01E7D /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
 		8268037D1CA978BA00C8B952 /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
 		8268037F1CA97A8800C8B952 /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8268037C1CA978BA00C8B952 /* SKUtils.framework */; };
 		8270D0A51CA6D76500B9069A /* SKTaskUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8270D0A41CA6D76500B9069A /* SKTaskUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		822586351CB6EC0300E01E7D /* SKTaskUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTaskUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		822586381CB6ED1C00E01E7D /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKUtils.framework; sourceTree = "<group>"; };
 		8268037C1CA978BA00C8B952 /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = ../../Carthage/Build/iOS/SKUtils.framework; sourceTree = "<group>"; };
 		8270D0A11CA6D76500B9069A /* SKTaskUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTaskUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8270D0A41CA6D76500B9069A /* SKTaskUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTaskUtils.h; sourceTree = "<group>"; };
@@ -75,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				822586391CB6ED1C00E01E7D /* SKUtils.framework in Frameworks */,
+				822586861CB7924400E01E7D /* SKUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +112,6 @@
 		8268037B1CA9788900C8B952 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				822586381CB6ED1C00E01E7D /* SKUtils.framework */,
 				8268037C1CA978BA00C8B952 /* SKUtils.framework */,
 			);
 			path = frameworks;

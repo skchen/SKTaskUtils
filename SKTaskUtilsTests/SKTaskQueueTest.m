@@ -61,11 +61,10 @@
         NSLog(@"Task3");
     }];
     
-    _taskQueue = [[SKTaskQueue alloc] initWithOrderedDictionary:_taskArray];
+    _taskQueue = [[SKTaskQueue alloc] initWithOrderedDictionary:_taskArray andConstraint:0 andQueue:nil];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 

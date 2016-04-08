@@ -25,7 +25,12 @@
     return [[SKOrderedDictionary alloc] init];
 }
 
-- (nonnull instancetype)initWithOrderedDictionary:(nullable SKOrderedDictionary *)taskArray {
++ (dispatch_queue_t)defaultQueue {
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    return dispatch_queue_create([bundleIdentifier UTF8String], NULL);
+}
+
+- (nonnull instancetype)initWithOrderedDictionary:(nullable SKOrderedDictionary *)taskArray andConstraint:(NSUInteger)constraint andQueue:(nullable dispatch_queue_t)queue {
     self = [super init];
     
     if(taskArray) {
@@ -34,16 +39,22 @@
         _taskArray = [SKTaskQueue defaultOrderedDictionary];
     }
     
+    if(queue) {
+        _queue = queue;
+    } else {
+        _queue = [SKTaskQueue defaultQueue];
+    }
+    
+    _constraint = constraint;
+    
     _suspended = NO;
     _executing = nil;
     
-    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-    _queue = dispatch_queue_create([bundleIdentifier UTF8String], NULL);
     return self;
 }
 
 - (nonnull instancetype)init {
-    return [self initWithOrderedDictionary:nil];
+    return [self initWithOrderedDictionary:nil andConstraint:0 andQueue:nil];
 }
 
 - (void)setSuspended:(BOOL)suspended {
@@ -57,6 +68,10 @@
     if(task.id!=_executing.id) {
         @synchronized(self) {
             [_taskArray insertObject:task atIndex:0 forKey:task.id];
+            
+            if(_constraint>0 && _taskArray.count>_constraint) {
+                [_taskArray removeLastObject];
+            }
         }
         [self dispatchTasks];
     }
@@ -65,7 +80,9 @@
 - (void)addTask:(SKTask *)task {
     if(task.id!=_executing.id) {
         @synchronized(self) {
-            [_taskArray addObject:task forKey:task.id];
+            if(_constraint==0 || _taskArray.count<_constraint) {
+                [_taskArray addObject:task forKey:task.id];
+            }
         }
         [self dispatchTasks];
     }
