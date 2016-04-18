@@ -4,8 +4,6 @@ xcode_project: SKTaskUtils.xcodeproj
 xcode_scheme: SKTaskUtils
 xcode_sdk: iphonesimulator
 before_install:
-- brew update
-- brew install carthage
 before_script:
 - carthage bootstrap --platform iOS
 before_deploy:
